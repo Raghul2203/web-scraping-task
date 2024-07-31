@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Content{% endblock title %}
+
+{% block content %}
+<div class="flex justify-center mt-[100px] mb-[100px]">
+    <div class="grid grid-rows-2 grid-cols-2 gap-2 ">
+        {% for i in details %}
+<div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+    <div class="text-[20px]">{{i.project_name}}</div>
+    <div class="font-semibold">
+        <a href="{% url 'scrap:detail' i.qs|urlencode %}">{{ i.rera_no }}</a>
+    </div>
+    <div>{{i.project_type}}</div>
+    <div>{{i.phone_no}}</div>
+    <div>{{i.email}}</div>
+    <div>{{i.address}}</div>
+    <div>{{i.valid_upto}}</div>
+    
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
